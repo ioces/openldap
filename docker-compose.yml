@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  openldap:
+    container_name: openldap
+    build: .
+    volumes:
+      - ./config/slapd.conf:/etc/openldap/slapd.conf
+      - ./data:/var/lib/openldap
+    ports:
+      - "127.0.0.1:389:389"
+    command: ['-d', '1']
